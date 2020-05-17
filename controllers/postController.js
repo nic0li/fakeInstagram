@@ -32,12 +32,25 @@ const postController = {
         const publication = Publication.create({
             image: post.filename,
             like: 0,
-            users_id: user.id,
+            user_id: user.id,
             create_at: new Date(),
             update_at: new Date(),
         });
 
     return res.redirect("/home");
+    },
+
+    like: async (req, res) => {
+        const { id } = req.params;
+
+        const publicationData = await Publication.findByPk(id);
+
+        //publicationData.like = publicationData.like + 1;
+        publicationData.like++;
+
+        await publicationData.save();
+
+        return res.redirect("/home");
     },
 
 }

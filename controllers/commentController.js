@@ -10,7 +10,7 @@ const commentController = {
         const comment = await Comment.create({
             description,
             user_id: user.id,
-            publications_id: idPost,
+            publication_id: idPost,
             create_at: new Date(),
             update_at: new Date(),
         });

@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
             },
             image: DataTypes.STRING,
             like: DataTypes.INTEGER,
-            users_id: DataTypes.INTEGER,
+            user_id: DataTypes.INTEGER,
             create_at: DataTypes.DATE,
             update_at: DataTypes.DATE,
         }, {
@@ -18,11 +18,11 @@ module.exports = (sequelize, DataTypes) => {
 
     Publication.associate = (models) => {
         Publication.belongsTo(models.User, {
-            foreignKey: "users_id",
+            foreignKey: "user_id",
         });
 
         Publication.hasMany(models.Comment, {
-            foreignKey: "publications_id",
+            foreignKey: "publication_id",
         });
     };
 

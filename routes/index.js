@@ -22,6 +22,8 @@ router.post("/publicar", upload.any(), postController.store);
 
 router.post("/comentar/:idPost", commentController.store);
 
+router.get("/publicacao/:id/like", postController.like);
+
 router.get("/home", auth, postController.index);
 
 module.exports = router;
