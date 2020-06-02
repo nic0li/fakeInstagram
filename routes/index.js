@@ -7,7 +7,7 @@ const postController = require("../controllers/postController");
 const commentController = require("../controllers/commentController");
 
 const auth = require("../middlewares/auth");
-const upload = require("../configs/uploads");
+const upload = require("../config/upload");
 
 router.get("/", authController.create);
 

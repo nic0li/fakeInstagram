@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const config = require("../configs/database");
+const config = require("../config/database");
 const bcrypt = require("bcrypt");
 
 const authController = {

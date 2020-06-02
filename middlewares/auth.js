@@ -18,7 +18,7 @@ module.exports = (req, res, next) => {
 }
 
 module.exports = (req, res, next) => {
-    if (!req.session.user) res.redirect('/login');
+    if (!req.session.user) res.redirect("/login");
     res.locals.user = req.session.user;
     next();
 */
