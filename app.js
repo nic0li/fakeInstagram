@@ -8,9 +8,7 @@ const methodOverride = require("method-override");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
-
-
-
+const apisRouter = require("./routes/apis");
 
 const app = express();
 
@@ -34,9 +32,7 @@ app.use(methodOverride("_method"));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-
-
-
+app.use("/api", apisRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

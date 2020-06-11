@@ -1,27 +1,19 @@
 const Sequelize = require("sequelize");
 const config = require("../config/database");
 const bcrypt = require("bcrypt");
-const { User } = require("../models");
+
+  /* index, show, create, store, edit, update, destroy */
 
 const userController = {
 
-  /* 
-  index,
-  show,
-  create,
-  store,
-  edit,
-  update,
-  destroy
-  */
-
-    create: (_req, res) => res.render("auth/register"),
+    create: (_req, res) => {
+        res.render("auth/register");
+    },
 
     store: async (req, res) => {
         const { name, username, email, password } = req.body;
         const hashPassword = bcrypt.hashSync(password, 10);
         const connection = new Sequelize(config);
-
         const user = await connection.query(
             "INSERT INTO users (name, username, email, password, create_at, update_at) VALUES (:name, :username, :email, :password, :create_at, :update_at)",
         {
