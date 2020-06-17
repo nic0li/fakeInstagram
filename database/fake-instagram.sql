@@ -39,10 +39,10 @@ CREATE TABLE IF NOT EXISTS comments(
   `description` TEXT,
   `create_at` DATETIME,
   `update_at` DATETIME,
-  `user_id` INT,
+  `user_id` INT NOT NULL,
   `publication_id` INT NOT NULL,
-	FOREIGN KEY (publication_id)
-	REFERENCES publications(id),
-	FOREIGN KEY (user_id) 
-	REFERENCES users(id)
+    FOREIGN KEY (user_id) 
+    REFERENCES users(id),
+    FOREIGN KEY (publication_id)
+    REFERENCES publications(id)
 );
